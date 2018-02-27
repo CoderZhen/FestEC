@@ -33,6 +33,10 @@ public class RestClientBuilder {
     private Context mContext = null;
     private File mFile = null;
 
+    private String mDownloadDir = null;
+    private String mExtension = null;
+    private String mName = null;
+
     RestClientBuilder() {
     }
 
@@ -61,6 +65,21 @@ public class RestClientBuilder {
         return this;
     }
 
+    public final RestClientBuilder name(String name) {
+        this.mName = name;
+        return this;
+    }
+
+    public final RestClientBuilder dir(String dir) {
+        this.mDownloadDir = dir;
+        return this;
+    }
+
+    public final RestClientBuilder extension(String extension) {
+        this.mExtension = extension;
+        return this;
+    }
+
     public final RestClientBuilder raw(String raw) {
         this.mBody = RequestBody.create(MediaType.parse("application/json;charset=UTF-8"), raw);
         return this;
@@ -76,7 +95,7 @@ public class RestClientBuilder {
         return this;
     }
 
-    public final RestClientBuilder request(IRequest request) {
+    public final RestClientBuilder onRequest(IRequest request) {
         this.mIRequest = request;
         return this;
     }
@@ -99,6 +118,6 @@ public class RestClientBuilder {
     }
 
     public final RestClient build() {
-        return new RestClient(mUrl, PARAMS, mIRequest, mISuccess, mIFailure, mIError, mBody, mFile, mContext, mLoaderStyle);
+        return new RestClient(mUrl, PARAMS, mDownloadDir, mExtension, mName, mIRequest, mISuccess, mIFailure, mIError, mBody, mFile, mContext, mLoaderStyle);
     }
 }
