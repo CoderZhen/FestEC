@@ -3,7 +3,6 @@ package com.dianbin.latte.net.callback;
 import android.os.Handler;
 
 import com.dianbin.latte.ui.LatteLoader;
-import com.dianbin.latte.ui.LoaderCreator;
 import com.dianbin.latte.ui.LoaderStyle;
 
 import retrofit2.Call;
