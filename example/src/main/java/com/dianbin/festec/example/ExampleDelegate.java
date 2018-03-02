@@ -10,6 +10,9 @@ import com.dianbin.latte.delegates.LatteDelegate;
 import com.dianbin.latte.net.RestClient;
 import com.dianbin.latte.net.callback.IFailure;
 import com.dianbin.latte.net.callback.ISuccess;
+import com.dianbin.latte.util.log.LatteLogger;
+
+import java.util.logging.Logger;
 
 /**
  * Created by ZHEN on 2018/2/27.
@@ -25,12 +28,12 @@ public class ExampleDelegate extends LatteDelegate {
 
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
-        testRestClient();
+        //testRestClient();
     }
 
     private void testRestClient() {
         RestClient.builder()
-                .url("http://news.baidu.com/")
+                .url("http://192.168.0.106/RestServer/api/user_profile.php")
                 .loader(getContext())
                 .success(new ISuccess() {
                     @Override

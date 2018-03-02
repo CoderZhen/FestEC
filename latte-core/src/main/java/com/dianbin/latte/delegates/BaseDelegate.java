@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.dianbin.latte.activities.ProxyActivity;
+
 import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
 
 /**
@@ -21,16 +23,22 @@ public abstract class BaseDelegate extends SwipeBackFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = null;
+        final View rootView;
         if (setLayout() instanceof Integer) {
             rootView = inflater.inflate((Integer) setLayout(), container, false);
         } else if (setLayout() instanceof View) {
             rootView = (View) setLayout();
+        } else {
+            throw new ClassCastException("setLayout() type must be int or View!");
         }
 
         if (rootView != null) {
             onBindView(savedInstanceState, rootView);
         }
         return rootView;
+    }
+
+    public final ProxyActivity getProxyActivity(){
+        return (ProxyActivity) _mActivity;
     }
 }

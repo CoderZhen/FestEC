@@ -105,12 +105,14 @@ public class RestClientBuilder {
         return this;
     }
 
+    //设置loader
     public final RestClientBuilder loader(Context context, LoaderStyle style) {
         this.mContext = context;
         this.mLoaderStyle = style;
         return this;
     }
 
+    //设置默认loader
     public final RestClientBuilder loader(Context context) {
         this.mContext = context;
         this.mLoaderStyle = LoaderStyle.BallClipRotatePulseIndicator;
