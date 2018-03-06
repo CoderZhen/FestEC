@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -18,12 +20,13 @@
         android:id="@+id/tb_index"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@android:color/transparent">
+        android:background="?attr/colorPrimary">
 
         <android.support.v7.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center">
 
             <com.joanzapata.iconify.widget.IconTextView
                 android:id="@+id/icon_index_scan"

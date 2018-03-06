@@ -1,5 +1,6 @@
 package com.dianbin.festec.example;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
@@ -15,6 +16,8 @@ import com.dianbin.latte.ec.sign.SignInDelegate;
 import com.dianbin.latte.ui.launcher.ILauncherListener;
 import com.dianbin.latte.ui.launcher.OnLauncherFinishTag;
 
+import qiu.niorgai.StatusBarCompat;
+
 public class ExampleActivity extends ProxyActivity implements
         ISignListener,
         ILauncherListener {
@@ -27,6 +30,7 @@ public class ExampleActivity extends ProxyActivity implements
             actionBar.hide();
         }
         Latte.getConfigurator().withActivity(this);
+        StatusBarCompat.setStatusBarColor(this, Color.parseColor("#3F51B5"));
     }
 
     @Override

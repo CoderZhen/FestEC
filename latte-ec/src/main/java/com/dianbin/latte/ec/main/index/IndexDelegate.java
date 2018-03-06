@@ -3,6 +3,7 @@ package com.dianbin.latte.ec.main.index;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.GridLayoutManager;
@@ -15,6 +16,7 @@ import com.dianbin.latte.delegates.bottom.BottomItemDelegate;
 import com.dianbin.latte.ec.R;
 import com.dianbin.latte.net.RestClient;
 import com.dianbin.latte.net.callback.ISuccess;
+import com.dianbin.latte.ui.recycler.BaseDecoration;
 import com.dianbin.latte.ui.recycler.MultipleFields;
 import com.dianbin.latte.ui.recycler.MultipleItemEntity;
 import com.dianbin.latte.ui.refresh.RefreshHandler;
@@ -51,6 +53,7 @@ public class IndexDelegate extends BottomItemDelegate {
     private void initRecyclerView(){
         final GridLayoutManager manager = new GridLayoutManager(getContext(),4);
         mRecyclerView.setLayoutManager(manager);
+        mRecyclerView.addItemDecoration(BaseDecoration.create(ContextCompat.getColor(_mActivity,R.color.app_background),5));
     }
 
     @Override

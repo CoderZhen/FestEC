@@ -27,7 +27,10 @@ public class MultipleRecyclerAdapter extends BaseMultiItemQuickAdapter<MultipleI
     //确保初始化一次banner,防止重复item加载
     private boolean mIsInitBanner = false;
 
-    private RequestOptions options;
+    private final RequestOptions RECYCLER_OPTIONS = new RequestOptions()
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .dontAnimate()
+                .centerCrop();
 
     protected MultipleRecyclerAdapter(List<MultipleItemEntity> data) {
         super(data);
@@ -55,11 +58,6 @@ public class MultipleRecyclerAdapter extends BaseMultiItemQuickAdapter<MultipleI
         openLoadAnimation();
         //多次执行动画
         isFirstOnly(false);
-
-        options = new RequestOptions()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .dontAnimate()
-                .centerCrop();
     }
 
     @Override
@@ -82,7 +80,7 @@ public class MultipleRecyclerAdapter extends BaseMultiItemQuickAdapter<MultipleI
                 imageUrl = entity.getField(MultipleFields.IMAGE_URL);
                 Glide.with(mContext)
                         .load(imageUrl)
-                        .apply(options)
+                        .apply(RECYCLER_OPTIONS)
                         .into((ImageView) holder.getView(R.id.img_single));
                 break;
             case ItemType.TEXT_IMAGE:
@@ -90,7 +88,7 @@ public class MultipleRecyclerAdapter extends BaseMultiItemQuickAdapter<MultipleI
                 imageUrl = entity.getField(MultipleFields.IMAGE_URL);
                 Glide.with(mContext)
                         .load(imageUrl)
-                        .apply(options)
+                        .apply(RECYCLER_OPTIONS)
                         .into((ImageView) holder.getView(R.id.img_multiple));
                 holder.setText(R.id.tv_multiple, text);
                 break;
