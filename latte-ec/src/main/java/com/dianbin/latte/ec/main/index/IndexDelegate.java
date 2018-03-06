@@ -1,5 +1,6 @@
 package com.dianbin.latte.ec.main.index;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 
 /**
  * Created by ZHEN on 2018/3/3.
+ * 首页Delegate
  */
 
 public class IndexDelegate extends BottomItemDelegate {

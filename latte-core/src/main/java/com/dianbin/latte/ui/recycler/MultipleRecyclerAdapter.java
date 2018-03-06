@@ -1,7 +1,6 @@
 package com.dianbin.latte.ui.recycler;
 
 import android.support.v7.widget.GridLayoutManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -33,7 +32,6 @@ public class MultipleRecyclerAdapter extends BaseMultiItemQuickAdapter<MultipleI
     protected MultipleRecyclerAdapter(List<MultipleItemEntity> data) {
         super(data);
         init();
-        System.out.println(getData().get(0).getField(MultipleFields.BANNERS));
     }
 
     //传值

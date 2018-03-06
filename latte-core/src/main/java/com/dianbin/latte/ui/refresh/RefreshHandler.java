@@ -29,7 +29,8 @@ public class RefreshHandler implements
 
     private RefreshHandler(SwipeRefreshLayout refreshLayout,
                            RecyclerView recyclerView,
-                           DataConverter converter, PagingBean bean) {
+                           DataConverter converter,
+                           PagingBean bean) {
         this.REFRESH_LAYOUT = refreshLayout;
         this.RECYCLERVIEW = recyclerView;
         this.CONVERTER = converter;
@@ -65,6 +66,7 @@ public class RefreshHandler implements
                                 .setPageSize(object.getInteger("page_size"));
                         //设置Adapter
                         mAdapter = MultipleRecyclerAdapter.create(CONVERTER.setJsonData(response));
+                        //上拉
                         mAdapter.setOnLoadMoreListener(RefreshHandler.this, RECYCLERVIEW);
                         RECYCLERVIEW.setAdapter(mAdapter);
                         BEAN.addIndex();

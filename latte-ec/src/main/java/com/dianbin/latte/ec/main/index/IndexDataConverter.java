@@ -1,7 +1,5 @@
 package com.dianbin.latte.ec.main.index;
 
-import android.util.Log;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
