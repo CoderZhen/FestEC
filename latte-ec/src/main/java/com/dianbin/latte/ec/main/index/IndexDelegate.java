@@ -12,8 +12,10 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 
+import com.dianbin.latte.delegates.LatteDelegate;
 import com.dianbin.latte.delegates.bottom.BottomItemDelegate;
 import com.dianbin.latte.ec.R;
+import com.dianbin.latte.ec.main.EcBottomDelegate;
 import com.dianbin.latte.net.RestClient;
 import com.dianbin.latte.net.callback.ISuccess;
 import com.dianbin.latte.ui.recycler.BaseDecoration;
@@ -53,7 +55,11 @@ public class IndexDelegate extends BottomItemDelegate {
     private void initRecyclerView(){
         final GridLayoutManager manager = new GridLayoutManager(getContext(),4);
         mRecyclerView.setLayoutManager(manager);
-        mRecyclerView.addItemDecoration(BaseDecoration.create(ContextCompat.getColor(_mActivity,R.color.app_background),5));
+        mRecyclerView.addItemDecoration
+                (BaseDecoration.create(ContextCompat.getColor(_mActivity,R.color.app_background),5));
+
+        final EcBottomDelegate ecBottomDelegate = getParentDelegate();
+        mRecyclerView.addOnItemTouchListener(IndexItemClickListener.create(ecBottomDelegate));
     }
 
     @Override
