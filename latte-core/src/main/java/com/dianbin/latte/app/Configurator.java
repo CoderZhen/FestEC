@@ -1,5 +1,8 @@
 package com.dianbin.latte.app;
 
+import android.app.Activity;
+import android.os.Handler;
+
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
 
@@ -17,9 +20,11 @@ public class Configurator {
     private static final HashMap<Object, Object> LATTE_CONFIGS = new HashMap<>();
     private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
     private static final ArrayList<Interceptor> INTERCEPTORS = new ArrayList<>();
+    private static final Handler HANDLER = new Handler();
 
     private Configurator() {
         LATTE_CONFIGS.put(ConfigKeys.CONFIG_READY, false);
+        LATTE_CONFIGS.put(ConfigKeys.HANDLER,HANDLER);
     }
 
     private static final class Holder {
@@ -71,6 +76,23 @@ public class Configurator {
         LATTE_CONFIGS.put(ConfigKeys.INTERCEPTOR,INTERCEPTORS);
         return this;
     }
+
+    public final Configurator withWeChatAppId(String appId) {
+        LATTE_CONFIGS.put(ConfigKeys.WE_CHAT_APP_ID,appId);
+        return this;
+    }
+
+    public final Configurator withWeChatAppSeccret(String appSecret) {
+        LATTE_CONFIGS.put(ConfigKeys.WE_CHAT_APP_SECRET,appSecret);
+        return this;
+    }
+
+    public final Configurator withActivity(Activity activity) {
+        LATTE_CONFIGS.put(ConfigKeys.ACTIVITY,activity);
+        return this;
+    }
+
+    //Hander
 
     private void checkConfiguration() {
         final boolean isReady = (boolean) LATTE_CONFIGS.get(ConfigKeys.CONFIG_READY);

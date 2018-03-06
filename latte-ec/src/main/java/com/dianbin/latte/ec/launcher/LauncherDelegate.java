@@ -53,6 +53,7 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
         mTvTimer = rootView.findViewById(R.id.tv_launcher_timer);
         initTimer();
+
         mTvTimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,6 +76,7 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
                 @Override
                 public void onSignIn() {
                     if (mILauncherListener != null) {
+                        //使用回调到ExampleActivity同意处理
                         mILauncherListener.onLauncherFinish(OnLauncherFinishTag.SIGNED);
                     }
                 }

@@ -21,19 +21,21 @@ public class ExampleApp extends Application {
         Latte.init(this)
                 .withIcon(new FontAwesomeModule())
                 .withIcon(new FontEcModule())
-                .withApiHost("http://127.0.0.1/")
+                .withApiHost("http://192.168.0.106/RestServer/api/")
                 .withInterceptor(new DebugInterceptor("index", R.raw.test))
+                .withWeChatAppId("")
+                .withWeChatAppSeccret("")
                 .configure();
-        initStetho();
+//        initStetho();
         DatabaseManager.getInstance().init(this);
     }
 
-    private void initStetho(){
-        Stetho.initialize(
-                Stetho.newInitializerBuilder(this)
-                .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
-                .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
-                .build()
-        );
-    }
+//    private void initStetho(){
+//        Stetho.initialize(
+//                Stetho.newInitializerBuilder(this)
+//                .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
+//                .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
+//                .build()
+//        );
+//    }
 }

@@ -1,4 +1,4 @@
-package com.dianbin.latte.ui;
+package com.dianbin.latte.ui.loader;
 
 /**
  * Created by ZHEN on 2018/2/27.

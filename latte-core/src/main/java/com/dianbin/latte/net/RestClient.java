@@ -1,6 +1,7 @@
 package com.dianbin.latte.net;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.dianbin.latte.net.callback.IError;
 import com.dianbin.latte.net.callback.IFailure;
@@ -8,8 +9,8 @@ import com.dianbin.latte.net.callback.IRequest;
 import com.dianbin.latte.net.callback.ISuccess;
 import com.dianbin.latte.net.callback.RequestCallbacks;
 import com.dianbin.latte.net.download.DownloadHandler;
-import com.dianbin.latte.ui.LatteLoader;
-import com.dianbin.latte.ui.LoaderStyle;
+import com.dianbin.latte.ui.loader.LatteLoader;
+import com.dianbin.latte.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.WeakHashMap;

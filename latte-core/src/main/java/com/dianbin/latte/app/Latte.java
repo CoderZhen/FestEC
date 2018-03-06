@@ -1,6 +1,7 @@
 package com.dianbin.latte.app;
 
 import android.content.Context;
+import android.os.Handler;
 
 import java.util.HashMap;
 
@@ -17,22 +18,28 @@ public final class Latte {
         return Configurator.getInstance();
     }
 
-    //第一种获取配置的方式 （需要强转）
+    /*//第一种获取配置的方式 （需要强转）
     public static HashMap<Object, Object> getConfiguration() {
         return getConfigurator().getLatteConfigs();
+    }*/
+
+    //第二种获取配置的方式 （不用强转）
+    public static <T> T getConfiguration(Object key) {
+        return getConfigurator().getConfiguration(key);
     }
 
     public static Context getApplicationContext() {
-        return (Context) getConfiguration().get(ConfigKeys.APPLICATION_CONTEXT);
+        return (Context) getConfiguration(ConfigKeys.APPLICATION_CONTEXT);
     }
 
     //获取Configurator单例
-    private static Configurator getConfigurator() {
+    public static Configurator getConfigurator() {
         return Configurator.getInstance();
     }
 
-    //第二种获取配置的方式 （不用强转）
-    public static <T> T getHashMapData(Object key) {
-        return getConfigurator().getConfiguration(key);
+
+
+    public static Handler getHandler(){
+        return getConfiguration(ConfigKeys.HANDLER);
     }
 }

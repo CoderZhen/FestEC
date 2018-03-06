@@ -66,7 +66,7 @@ public class LauncherScrollDelegate extends LatteDelegate implements OnItemClick
         //如果点击的是最后一页
         if (position == INTEGERS.size() - 1) {
             LattePreference.setAppFlag(ScrollLauncherTag.HAS_FIRST_LAUNCHER_APP.name(), true);
-            //TODO()检查用户是否已经登录
+            //检查用户是否已经登录
             AccountManager.checkAccount(new IUserChecker() {
                 @Override
                 public void onSignIn() {

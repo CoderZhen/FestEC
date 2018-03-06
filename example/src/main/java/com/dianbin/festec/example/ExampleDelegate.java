@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 
 /**
  * Created by ZHEN on 2018/2/27.
+ * 测试用的，现在没用了
  */
 
 public class ExampleDelegate extends LatteDelegate {

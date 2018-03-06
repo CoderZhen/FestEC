@@ -6,12 +6,12 @@ import android.support.v7.app.ActionBar;
 import android.widget.Toast;
 
 import com.dianbin.latte.activities.ProxyActivity;
+import com.dianbin.latte.app.Latte;
 import com.dianbin.latte.delegates.LatteDelegate;
 import com.dianbin.latte.ec.launcher.LauncherDelegate;
-import com.dianbin.latte.ec.launcher.LauncherScrollDelegate;
+import com.dianbin.latte.ec.main.EcBottomDelegate;
 import com.dianbin.latte.ec.sign.ISignListener;
 import com.dianbin.latte.ec.sign.SignInDelegate;
-import com.dianbin.latte.ec.sign.SignUpDelegate;
 import com.dianbin.latte.ui.launcher.ILauncherListener;
 import com.dianbin.latte.ui.launcher.OnLauncherFinishTag;
 
@@ -26,6 +26,7 @@ public class ExampleActivity extends ProxyActivity implements
         if (actionBar != null) {
             actionBar.hide();
         }
+        Latte.getConfigurator().withActivity(this);
     }
 
     @Override
@@ -48,10 +49,12 @@ public class ExampleActivity extends ProxyActivity implements
         switch (tag) {
             case SIGNED:
                 Toast.makeText(this, "启动结束，登录", Toast.LENGTH_SHORT).show();
-                startWithPop(new ExampleDelegate());
+                //跳转主页
+                startWithPop(new EcBottomDelegate());
                 break;
             case NOT_SIGNED:
                 Toast.makeText(this, "启动结束，没登录", Toast.LENGTH_SHORT).show();
+                //跳转登录页
                 startWithPop(new SignInDelegate());
                 break;
             default:

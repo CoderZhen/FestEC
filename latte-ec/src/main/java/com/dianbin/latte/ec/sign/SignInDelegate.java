@@ -13,13 +13,15 @@ import com.dianbin.latte.delegates.LatteDelegate;
 import com.dianbin.latte.ec.R;
 import com.dianbin.latte.net.RestClient;
 import com.dianbin.latte.net.callback.ISuccess;
+import com.dianbin.latte.wechat.LatteWeChat;
+import com.dianbin.latte.wechat.callbacks.IWeChatSignInCallback;
 import com.joanzapata.iconify.widget.IconTextView;
 
 /**
  * Created by ZHEN on 2018/2/28.
  */
 
-public class SignInDelegate extends LatteDelegate {
+public class SignInDelegate extends LatteDelegate{
 
     private AppCompatEditText mEmail, mPassword;
     private AppCompatButton mBtnSignIn;
@@ -74,6 +76,18 @@ public class SignInDelegate extends LatteDelegate {
             @Override
             public void onClick(View v) {
                 getSupportDelegate().start(new SignUpDelegate());
+            }
+        });
+
+        mWeiXin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LatteWeChat.getInstance().onSignSuccess(new IWeChatSignInCallback() {
+                    @Override
+                    public void onSignInSuccess(String userInfo) {
+
+                    }
+                }).signIn();
             }
         });
 
