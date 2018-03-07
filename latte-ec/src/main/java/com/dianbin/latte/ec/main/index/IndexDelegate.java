@@ -55,9 +55,11 @@ public class IndexDelegate extends BottomItemDelegate {
     private void initRecyclerView(){
         final GridLayoutManager manager = new GridLayoutManager(getContext(),4);
         mRecyclerView.setLayoutManager(manager);
+        //分割线
         mRecyclerView.addItemDecoration
                 (BaseDecoration.create(ContextCompat.getColor(_mActivity,R.color.app_background),5));
 
+        //Item点击事件
         final EcBottomDelegate ecBottomDelegate = getParentDelegate();
         mRecyclerView.addOnItemTouchListener(IndexItemClickListener.create(ecBottomDelegate));
     }

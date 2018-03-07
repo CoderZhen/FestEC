@@ -12,8 +12,8 @@ import java.util.LinkedHashMap;
 
 public class MultipleItemEntity implements MultiItemEntity {
 
-    private final ReferenceQueue<LinkedHashMap<Object, Object>> ITEM_QUEUE = new ReferenceQueue<>();
     private final LinkedHashMap<Object, Object> MULTIPLE_FIELDS = new LinkedHashMap<>();
+    private final ReferenceQueue<LinkedHashMap<Object, Object>> ITEM_QUEUE = new ReferenceQueue<>();
     private final SoftReference<LinkedHashMap<Object, Object>> FIELDS_REFERENCE =
             new SoftReference<>(MULTIPLE_FIELDS, ITEM_QUEUE);
 
