@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 /**
  * Created by ZHEN on 2018/3/7.
+ * 转换数据
  */
 
 public final class VerticalListDataConverter extends DataConverter{
@@ -35,9 +36,9 @@ public final class VerticalListDataConverter extends DataConverter{
                     .build();
 
             dataList.add(entity);
-            //设置第一个被选中
-            dataList.get(0).setField(MultipleFields.TAG,true);
         }
+        //设置第一个被选中
+        dataList.get(0).setField(MultipleFields.TAG,true);
 
         return dataList;
     }
