@@ -74,12 +74,16 @@ public abstract class BaseBottomDelegate extends LatteDelegate implements View.O
         final int size = ITEMS.size();
         mBottomBar = rootView.findViewById(R.id.bottom_bar);
         for (int i = 0; i < size; i++) {
+            //填充TAB
             LayoutInflater.from(getContext()).inflate(R.layout.bottom_item_icon_text_layout, mBottomBar);
+            //获取每一个BottomBar
             final RelativeLayout item = (RelativeLayout) mBottomBar.getChildAt(i);
             //设置每个item点击事件
             item.setTag(i);
             item.setOnClickListener(this);
+            //获取BottomBar里面的第一个IconText
             final IconTextView itemIcon = (IconTextView) item.getChildAt(0);
+            ////获取BottomBar里面的第二个TextView
             final AppCompatTextView itemTitle = (AppCompatTextView) item.getChildAt(1);
             final BottomTabBean bean = TAB_BEANS.get(i);
             //初始化数据
@@ -90,6 +94,7 @@ public abstract class BaseBottomDelegate extends LatteDelegate implements View.O
                 itemTitle.setTextColor(mClickedColor);
             }
         }
+        //加载delegate
         final SupportFragment[] delegateArray = ITEM_DELEGATES.toArray(new SupportFragment[size]);
         loadMultipleRootFragment(R.id.bottom_bar_delegate_container, mIndexDelegate, delegateArray);
     }

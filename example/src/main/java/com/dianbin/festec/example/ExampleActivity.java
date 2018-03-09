@@ -41,11 +41,13 @@ public class ExampleActivity extends ProxyActivity implements
     @Override
     public void onSignInSuccess() {
         Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
+        startWithPop(new EcBottomDelegate());
     }
 
     @Override
     public void onSignUpSuccess() {
         Toast.makeText(this, "注册成功", Toast.LENGTH_SHORT).show();
+        startWithPop(new SignInDelegate());
     }
 
     @Override

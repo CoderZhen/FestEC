@@ -12,7 +12,7 @@ import com.dianbin.latte.app.IUserChecker;
 import com.dianbin.latte.delegates.LatteDelegate;
 import com.dianbin.latte.ec.R;
 import com.dianbin.latte.ui.launcher.ILauncherListener;
-import com.dianbin.latte.ui.launcher.LauncherHolerCreator;
+import com.dianbin.latte.ui.launcher.LauncherHolderCreator;
 import com.dianbin.latte.ui.launcher.OnLauncherFinishTag;
 import com.dianbin.latte.util.storage.LattePreference;
 
@@ -34,7 +34,7 @@ public class LauncherScrollDelegate extends LatteDelegate implements OnItemClick
         INTEGERS.add(R.mipmap.launcher_03);
         INTEGERS.add(R.mipmap.launcher_04);
         INTEGERS.add(R.mipmap.launcher_05);
-        mConvenientBanner.setPages(new LauncherHolerCreator(), INTEGERS)
+        mConvenientBanner.setPages(new LauncherHolderCreator(), INTEGERS)
                 .setPageIndicator(new int[]{R.drawable.dot_normal, R.drawable.dot_focus})
                 .setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.CENTER_HORIZONTAL)
                 .setOnItemClickListener(this)

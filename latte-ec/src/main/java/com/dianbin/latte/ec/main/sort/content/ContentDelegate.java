@@ -1,6 +1,5 @@
 package com.dianbin.latte.ec.main.sort.content;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
