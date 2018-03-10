@@ -26,6 +26,9 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':latte-core')
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':latte-ui')
+    //圆形图片框
+    compile 'de.hdodenhof:circleimageview:2.2.0'
+    implementation files('libs/alipaySdk-20170922.jar')
 }

@@ -5,15 +5,31 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.dianbin.latte.R;
+import com.dianbin.latte.app.Latte;
 import com.dianbin.latte.delegates.LatteDelegate;
 
 /**
  * Created by ZHEN on 2018/3/3.
  */
 
-public abstract class BottomItemDelegate extends LatteDelegate implements View.OnKeyListener {
+public abstract class BottomItemDelegate extends LatteDelegate {
 
-    private long mExitTime = 0;
+    // 再点一次退出程序时间设置
+    private static final long WAIT_TIME = 2000L;
+    private long TOUCH_TIME = 0;
+
+    @Override
+    public boolean onBackPressedSupport() {
+        if (System.currentTimeMillis() - TOUCH_TIME < WAIT_TIME) {
+            _mActivity.finish();
+        } else {
+            TOUCH_TIME = System.currentTimeMillis();
+            Toast.makeText(_mActivity, "双击退出" + Latte.getApplicationContext().getString(R.string.app_name), Toast.LENGTH_SHORT).show();
+        }
+        return true;
+    }
+
+    /*private long mExitTime = 0;
     private static final int EXIT_TIME = 2000;
 
     @Override
@@ -42,5 +58,5 @@ public abstract class BottomItemDelegate extends LatteDelegate implements View.O
             return true;
         }
         return false;
-    }
+    }*/
 }

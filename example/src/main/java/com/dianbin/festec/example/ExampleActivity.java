@@ -41,13 +41,13 @@ public class ExampleActivity extends ProxyActivity implements
     @Override
     public void onSignInSuccess() {
         Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
-        startWithPop(new EcBottomDelegate());
+        getSupportDelegate().startWithPop(new EcBottomDelegate());
     }
 
     @Override
     public void onSignUpSuccess() {
         Toast.makeText(this, "注册成功", Toast.LENGTH_SHORT).show();
-        startWithPop(new SignInDelegate());
+        getSupportDelegate().startWithPop(new SignInDelegate());
     }
 
     @Override
@@ -56,12 +56,12 @@ public class ExampleActivity extends ProxyActivity implements
             case SIGNED:
                 Toast.makeText(this, "启动结束，登录", Toast.LENGTH_SHORT).show();
                 //跳转主页
-                startWithPop(new EcBottomDelegate());
+                getSupportDelegate().startWithPop(new EcBottomDelegate());
                 break;
             case NOT_SIGNED:
                 Toast.makeText(this, "启动结束，没登录", Toast.LENGTH_SHORT).show();
                 //跳转登录页
-                startWithPop(new SignInDelegate());
+                getSupportDelegate().startWithPop(new SignInDelegate());
                 break;
             default:
                 break;

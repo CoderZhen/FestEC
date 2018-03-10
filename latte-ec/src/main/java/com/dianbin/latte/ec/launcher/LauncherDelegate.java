@@ -1,7 +1,10 @@
 package com.dianbin.latte.ec.launcher;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
@@ -25,6 +28,7 @@ import java.util.Timer;
 
 public class LauncherDelegate extends LatteDelegate implements ITimerListener {
 
+
     private AppCompatTextView mTvTimer;
     private Timer mTimer = null;
     private int mCount = 5;
@@ -36,11 +40,19 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
         mTimer.schedule(task, 0, 1000);
     }
 
-    @Override
+    /*@Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         if (activity instanceof ILauncherListener) {
             mILauncherListener = (ILauncherListener) activity;
+        }
+    }*/
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof ILauncherListener) {
+            mILauncherListener = (ILauncherListener) context;
         }
     }
 
@@ -69,7 +81,7 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
     //判断是否显示滑动启动页
     private void checkIsShowScroll() {
         if (!LattePreference.getAppFlag(ScrollLauncherTag.HAS_FIRST_LAUNCHER_APP.name())) {
-            start(new LauncherScrollDelegate(), SINGLETASK);
+            getSupportDelegate().start(new LauncherScrollDelegate(), SINGLETASK);
         } else {
             //检查用户是否登录APP
             AccountManager.checkAccount(new IUserChecker() {
@@ -93,6 +105,7 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
 
     @Override
     public void onTimer() {
+
         getProxyActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {

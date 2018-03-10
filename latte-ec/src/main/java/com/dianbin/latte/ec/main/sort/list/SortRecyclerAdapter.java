@@ -17,6 +17,8 @@ import com.dianbin.latte.ui.recycler.MultipleViewHolder;
 
 import java.util.List;
 
+import me.yokeyword.fragmentation.SupportHelper;
+
 /**
  * Created by ZHEN on 2018/3/7.
  */
@@ -83,15 +85,15 @@ public class SortRecyclerAdapter extends MultipleRecyclerAdapter {
         }
     }
 
-    private void showContent(int contentId){
+    private void showContent(int contentId) {
         final ContentDelegate delegate = ContentDelegate.newInstance(contentId);
         switchContent(delegate);
     }
 
-    private void switchContent(ContentDelegate delegate){
-        final LatteDelegate contentDelegate = DELEGATE.findChildFragment(ContentDelegate.class);
+    private void switchContent(ContentDelegate delegate) {
+        final LatteDelegate contentDelegate = SupportHelper.findFragment(DELEGATE.getChildFragmentManager(), ContentDelegate.class);
         if (contentDelegate != null) {
-            contentDelegate.replaceFragment(delegate,false);
+            contentDelegate.getSupportDelegate().replaceFragment(delegate, false);
         }
     }
 }

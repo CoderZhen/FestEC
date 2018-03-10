@@ -14,6 +14,10 @@ import com.dianbin.latte.util.log.LatteLogger;
 
 import java.util.logging.Logger;
 
+import me.yokeyword.fragmentation.ExtraTransaction;
+import me.yokeyword.fragmentation.SupportFragmentDelegate;
+import me.yokeyword.fragmentation.anim.FragmentAnimator;
+
 /**
  * Created by ZHEN on 2018/2/27.
  * 测试用的，现在没用了

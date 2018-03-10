@@ -1,19 +1,19 @@
 package com.dianbin.festec.example;
 
 import android.app.Application;
+import android.support.multidex.MultiDexApplication;
 
 import com.dianbin.latte.app.Latte;
 import com.dianbin.latte.ec.database.DatabaseManager;
 import com.dianbin.latte.ec.icon.FontEcModule;
 import com.dianbin.latte.net.interceptors.DebugInterceptor;
-import com.facebook.stetho.Stetho;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
 
 /**
  * Created by ZHEN on 2018/2/27.
  */
 
-public class ExampleApp extends Application {
+public class ExampleApp extends MultiDexApplication {
 
     @Override
     public void onCreate() {

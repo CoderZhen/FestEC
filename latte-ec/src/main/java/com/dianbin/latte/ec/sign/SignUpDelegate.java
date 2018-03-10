@@ -69,7 +69,7 @@ public class SignUpDelegate extends LatteDelegate {
         mTvSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                start(new SignInDelegate());
+                getSupportDelegate().start(new SignInDelegate());
             }
         });
     }
