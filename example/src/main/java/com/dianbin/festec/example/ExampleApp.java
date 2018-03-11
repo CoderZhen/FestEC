@@ -3,6 +3,7 @@ package com.dianbin.festec.example;
 import android.app.Application;
 import android.support.multidex.MultiDexApplication;
 
+import com.blankj.utilcode.util.Utils;
 import com.dianbin.latte.app.Latte;
 import com.dianbin.latte.ec.database.DatabaseManager;
 import com.dianbin.latte.ec.icon.FontEcModule;
@@ -26,8 +27,10 @@ public class ExampleApp extends MultiDexApplication {
                 .withWeChatAppId("")
                 .withWeChatAppSeccret("")
                 .configure();
+        Utils.init(this);
 //        initStetho();
         DatabaseManager.getInstance().init(this);
+        //androidUtilCode
     }
 
 //    private void initStetho(){

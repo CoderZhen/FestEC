@@ -79,4 +79,12 @@ dependencies {
     annotationProcessor "com.google.auto.value:auto-value:1.4.1"
 
     compile 'com.android.support:multidex:1.0.3'
+
+    //androidUtilCode
+    compile 'com.blankj:utilcode:1.11.1'
+    //动态权限
+    compile "com.github.hotchemi:permissionsdispatcher:3.1.0"
+    annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:3.1.0"
+    //uCrop图片剪辑
+    compile 'com.github.yalantis:ucrop:2.2.1-native'
 }

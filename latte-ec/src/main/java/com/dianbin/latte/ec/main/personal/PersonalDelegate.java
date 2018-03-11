@@ -6,6 +6,8 @@ import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.dianbin.latte.delegates.bottom.BottomItemDelegate;
 import com.dianbin.latte.ec.R;
@@ -13,9 +15,11 @@ import com.dianbin.latte.ec.main.personal.list.ListAdapter;
 import com.dianbin.latte.ec.main.personal.list.ListBean;
 import com.dianbin.latte.ec.main.personal.list.ListItemType;
 import com.dianbin.latte.ec.main.personal.order.OrderListDelegate;
+import com.dianbin.latte.ec.main.personal.profile.UserProfileDelegate;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * Created by ZHEN on 2018/3/10.
@@ -28,6 +32,7 @@ public class PersonalDelegate extends BottomItemDelegate {
     public static final String ORDER_TYPE = "ORDER_TYPE";
     private Bundle mArgs = null;
     private AppCompatTextView mTvAllOrder;
+    private ImageView mCircleImageView;
 
     @Override
     public Object setLayout() {
@@ -82,10 +87,18 @@ public class PersonalDelegate extends BottomItemDelegate {
                 startOrderListByType();
             }
         });
+
+        mCircleImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getParentDelegate().getSupportDelegate().start(new UserProfileDelegate());
+            }
+        });
     }
 
     private void initView() {
         mRvSettings = $(R.id.rv_personal_setting);
         mTvAllOrder = $(R.id.tv_all_order);
+        mCircleImageView = $(R.id.img_user_avatar);
     }
 }
