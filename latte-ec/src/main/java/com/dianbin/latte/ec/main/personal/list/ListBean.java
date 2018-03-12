@@ -29,29 +29,29 @@ public class ListBean implements MultiItemEntity {
         this.mOnCheckedChangeListener = mOnCheckedChangeListener;
     }
 
-    public String getmImageUrl() {
+    public String getImageUrl() {
         return mImageUrl;
     }
 
-    public String getmText() {
+    public String getText() {
         if (mText == null) {
             return "";
         }
         return mText;
     }
 
-    public String getmValue() {
+    public String getValue() {
         if (mValue == null) {
             return "";
         }
         return mValue;
     }
 
-    public int getmId() {
+    public int getId() {
         return mId;
     }
 
-    public LatteDelegate getmDelegate() {
+    public LatteDelegate getDelegate() {
         return mDelegate;
     }
 
@@ -59,6 +59,7 @@ public class ListBean implements MultiItemEntity {
         return mOnCheckedChangeListener;
     }
 
+    //返回给adapter 重写的方法
     @Override
     public int getItemType() {
         return mItemType;
@@ -79,6 +80,7 @@ public class ListBean implements MultiItemEntity {
             return this;
         }
 
+        //从外部获取item布局 自定义方法
         public Builder setItemType(int itemType) {
             this.itemType = itemType;
             return this;

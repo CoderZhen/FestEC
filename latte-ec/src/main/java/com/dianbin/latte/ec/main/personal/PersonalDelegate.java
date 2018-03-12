@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.dianbin.latte.delegates.bottom.BottomItemDelegate;
 import com.dianbin.latte.ec.R;
+import com.dianbin.latte.ec.main.personal.address.AddressDelegate;
 import com.dianbin.latte.ec.main.personal.list.ListAdapter;
 import com.dianbin.latte.ec.main.personal.list.ListBean;
 import com.dianbin.latte.ec.main.personal.list.ListItemType;
@@ -57,6 +58,7 @@ public class PersonalDelegate extends BottomItemDelegate {
         final ListBean address = new ListBean.Builder()
                 .setItemType(ListItemType.ITEM_NORMAL)
                 .setId(1)
+                .setDelegate(new AddressDelegate())
                 .setText("收货地址")
                 .build();
 
@@ -75,6 +77,7 @@ public class PersonalDelegate extends BottomItemDelegate {
         mRvSettings.setLayoutManager(manager);
         final ListAdapter adapter = new ListAdapter(data);
         mRvSettings.setAdapter(adapter);
+        mRvSettings.addOnItemTouchListener(new PersonalClickListener(this));
 
         initEvent();
     }

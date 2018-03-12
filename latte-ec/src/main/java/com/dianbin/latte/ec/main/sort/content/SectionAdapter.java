@@ -34,7 +34,7 @@ public class SectionAdapter extends BaseSectionQuickAdapter<SectionBean,BaseView
 
     @Override
     protected void convert(BaseViewHolder helper, SectionBean item) {
-        //item.t返回SectionBean类型
+        //item_address.t返回SectionBean类型
         final String thumb = item.t.getGoodsThumb();
         final String name = item.t.getGoodsName();
         final int goodsId = item.t.getGoodsId();

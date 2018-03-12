@@ -22,7 +22,7 @@ public class ExampleApp extends MultiDexApplication {
         Latte.init(this)
                 .withIcon(new FontAwesomeModule())
                 .withIcon(new FontEcModule())
-                .withApiHost("http://192.168.0.106/RestServer/api/")
+                .withApiHost("http://192.168.0.103/RestServer/api/")
                 .withInterceptor(new DebugInterceptor("index", R.raw.test))
                 .withWeChatAppId("")
                 .withWeChatAppSeccret("")
