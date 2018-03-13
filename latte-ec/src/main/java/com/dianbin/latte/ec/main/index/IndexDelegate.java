@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.dianbin.latte.delegates.LatteDelegate;
 import com.dianbin.latte.delegates.bottom.BottomItemDelegate;
@@ -22,6 +23,9 @@ import com.dianbin.latte.ui.recycler.BaseDecoration;
 import com.dianbin.latte.ui.recycler.MultipleFields;
 import com.dianbin.latte.ui.recycler.MultipleItemEntity;
 import com.dianbin.latte.ui.refresh.RefreshHandler;
+import com.dianbin.latte.util.callback.CallbackManager;
+import com.dianbin.latte.util.callback.CallbackType;
+import com.dianbin.latte.util.callback.IGlobalCallback;
 import com.joanzapata.iconify.widget.IconTextView;
 
 import java.util.ArrayList;
@@ -52,12 +56,12 @@ public class IndexDelegate extends BottomItemDelegate {
         mRefreshLayout.setProgressViewOffset(true, 120, 300);
     }
 
-    private void initRecyclerView(){
-        final GridLayoutManager manager = new GridLayoutManager(getContext(),4);
+    private void initRecyclerView() {
+        final GridLayoutManager manager = new GridLayoutManager(getContext(), 4);
         mRecyclerView.setLayoutManager(manager);
         //分割线
         mRecyclerView.addItemDecoration
-                (BaseDecoration.create(ContextCompat.getColor(_mActivity,R.color.app_background),5));
+                (BaseDecoration.create(ContextCompat.getColor(_mActivity, R.color.app_background), 5));
 
         //Item点击事件
         final EcBottomDelegate ecBottomDelegate = getParentDelegate();
@@ -81,8 +85,25 @@ public class IndexDelegate extends BottomItemDelegate {
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
         initView(rootView);
-        mRefreshHandler = RefreshHandler.create(mRefreshLayout,mRecyclerView,new IndexDataConverter());
+        mRefreshHandler = RefreshHandler.create(mRefreshLayout, mRecyclerView, new IndexDataConverter());
+        initEvent();
+        CallbackManager.getInstance().addCallback(CallbackType.ON_SCAN, new IGlobalCallback<String>() {
+            @Override
+            public void executeCallback(String args) {
+                Toast.makeText(_mActivity, args, Toast.LENGTH_SHORT).show();
+            }
+        });
 
+    }
+
+    private void initEvent() {
+        mIconScan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //扫描二维码
+                startScanWithCheck(IndexDelegate.this.getParentDelegate());
+            }
+        });
     }
 
     private void initView(View rootView) {
@@ -91,5 +112,6 @@ public class IndexDelegate extends BottomItemDelegate {
         mToolbar = rootView.findViewById(R.id.tb_index);
         mIconScan = rootView.findViewById(R.id.icon_index_scan);
         mSearchView = rootView.findViewById(R.id.et_search_view);
+        mIconScan = $(R.id.icon_index_scan);
     }
 }

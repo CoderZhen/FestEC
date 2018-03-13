@@ -17,7 +17,7 @@ import com.dianbin.latte.ui.widget.StarLayout;
 public class OrderCommentDelegate extends LatteDelegate {
 
     private StarLayout mStarLayout;
-    private AppCompatTextView mTvSmbit;
+    private AppCompatTextView mTvSubmit;
 
     @Override
     public Object setLayout() {
@@ -27,7 +27,7 @@ public class OrderCommentDelegate extends LatteDelegate {
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
         initView();
-        mTvSmbit.setOnClickListener(new View.OnClickListener() {
+        mTvSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final int starCount = mStarLayout.getStarCount();
@@ -38,6 +38,6 @@ public class OrderCommentDelegate extends LatteDelegate {
 
     private void initView() {
         mStarLayout = $(R.id.custom_star_layout);
-        mTvSmbit = $(R.id.top_tv_comment_commit);
+        mTvSubmit = $(R.id.top_tv_comment_commit);
     }
 }

@@ -5,5 +5,6 @@ package com.dianbin.latte.util.callback;
  */
 
 public enum CallbackType {
-    ON_CROP
+    ON_CROP,
+    ON_SCAN
 }

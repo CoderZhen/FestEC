@@ -107,4 +107,6 @@ dependencies {
     //uCrop图片剪辑
     compile 'com.github.yalantis:ucrop:2.2.1-native'
     implementation 'com.android.support:cardview-v7:27.1.0'
+    //zBar
+    compile 'me.dm7.barcodescanner:zbar:1.9.8'
 }
